@@ -1,0 +1,10 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Souls for sale</h1>
+    {% for soul in souls %}
+        <h2>{{ soul.name }}</h2>
+        <small>{{ soul.price }}</small>
+    {% endfor %}
+{% endblock %}
