@@ -3,6 +3,9 @@
 
 {% block content %}
     <h1>Souls for sale</h1>
+
+<a href='/souls/new'>New Soul</a>
+
     {% for soul in souls %}
         <h2>{{ soul.name }}</h2>
         <small>{{ soul.price }}</small>

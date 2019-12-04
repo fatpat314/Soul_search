@@ -1,0 +1,34 @@
+<!-- templates/souls_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method='POST' action='/souls'>
+    <feildset>
+    <legend>New Soul</legend>
+    <!-- TITLE -->
+    <p>
+        <label for= 'name'>Name</label><br>
+        <input type='text' name='name' />
+    </p>
+
+    <!-- PRICE -->
+    <p>
+        <label for="price">Price</label><br>
+        <input type='text' name='price' />
+    </p>
+
+    <!-- SOUL IDS -->
+    <p>
+        <label for='souls-soul-ids'>Souls</label><br>
+        <p>Add the ID of the souls you want to include in your soul list. Seperate with new line. </p>
+        <textarea id='souls-soul-ids' name='soul_ids' rows='10'></textarea>
+    </p>
+    </feildset>
+
+    <!-- Button -->
+    <p>
+        <button type='submit'>Save Soul</button>
+    </p>
+</form>
+{% endblock %}
