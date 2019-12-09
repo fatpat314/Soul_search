@@ -2,6 +2,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container jumbotron">
+<a href='/'>Back to Home</a>
 
 <h1>{{ soul.name }}'s soul</h1>
 <img src="https://avatars.dicebear.com/v2/jdenticon/{{ soul._id }}.svg" alt="{{ soul.name }}" width="300">
@@ -19,4 +21,5 @@
 <p><form method='POST' action='/souls/{{ soul._id }}/delete'>
     <button type='submit'>Delete</button>
 </form></p>
+</div>
 {% endblock %}
