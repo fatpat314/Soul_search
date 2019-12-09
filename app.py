@@ -35,7 +35,8 @@ def souls_submit():
     """Submit a soul"""
     soul = {
         'name': request.form.get('name'),
-        'price': request.form.get('price')
+        'price': request.form.get('price'),
+
     }
     souls_collection.insert(soul)
     return redirect('/')
@@ -45,6 +46,35 @@ def souls_show(soul_id):
     """Show a single soul"""
     soul = souls_collection.find_one({'_id': ObjectId(soul_id)})
     return render_template('souls_show.html', soul=soul)
+
+@app.route('/souls/<soul_id>/edit')
+def souls_edit(soul_id):
+    """Show a single soul"""
+    soul = souls_collection.find_one({'_id': ObjectId(soul_id)})
+    return render_template('souls_edit.html', soul=soul)
+
+@app.route('/souls/<soul_id>', methods=['POST'])
+def souls_update(soul_id):
+    """Submit edited soul"""
+    # soul_id = request.form.get('soul_id')
+
+    updated_soul = {
+        'name': request.form.get('name'),
+        'price': request.form.get('price')
+    }
+
+    souls_collection.update_one(
+        {'_id': ObjectId(soul_id)},
+        {'$set': updated_soul})
+
+    return redirect(url_for('souls_show', soul_id=soul_id))
+
+@app.route('/souls/<soul_id>/delete', methods=['POST'])
+def souls_delete(soul_id):
+    """Deletes one soul"""
+    souls_collection.delete_one({'_id': ObjectId(soul_id)})
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

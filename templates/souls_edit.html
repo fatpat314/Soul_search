@@ -1,0 +1,34 @@
+<!-- templates/souls_edit.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method='POST' action='/souls/{{soul._id}}'>
+    <fieldset>
+    <legend>New Soul</legend>
+
+    <!-- TITLE -->
+
+    <p>
+        <label for='name'>Name</label><br>
+        <input id='name' type='text' name='name' />
+    </p>
+
+    <!-- PRICE -->
+
+    <p>
+        <label for="price">Price</label><br>
+        <input id='price' type='text' name='price' />
+    </p>
+
+    <!-- SOUL IDS -->
+
+
+    </fieldset>
+
+    <!-- Button -->
+    <p>
+        <button type='submit'>Save Soul</button>
+    </p>
+</form>
+{% endblock %}
