@@ -91,4 +91,4 @@ send the seller an email from the sellers email that was
 put in the database?'''
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
