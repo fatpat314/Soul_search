@@ -2,16 +2,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<link rel="stylesheet" href="styles.css">
+
+
+
+
 <div class="container jumbotron">
-    <h1>Souls for sale</h1>
-    <a href='/souls/new'>Add A New Soul</a>
+    <h2>Souls for sale</h2>
+
+    <h4><a href='/souls/new'>Sell Your Soul</a></h4>
 
     {% for soul in souls %}
-        <div class="soul">
-            <img src="https://avatars.dicebear.com/v2/jdenticon/{{ soul._id }}.svg" alt="{{ soul.name }}" width="300">
-            <h2><a href='/souls/{{ soul._id }}'>{{ soul.name }}</a></h2>
-            <small>${{ soul.price }}</small>
-
+        <div class="row">
+            <div class="column">
+                <h2><a href='/souls/{{ soul._id }}'>{{ soul.name }}</a></h2><h4>${{ soul.price }}</h4>
+                <img src="https://avatars.dicebear.com/v2/jdenticon/{{ soul._id }}.svg" alt="{{ soul.name }}" width="300">
+                <br><br><br><br>
+            </div>
         </div>
     {% endfor %}
 </div>

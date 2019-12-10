@@ -75,6 +75,19 @@ def souls_delete(soul_id):
     souls_collection.delete_one({'_id': ObjectId(soul_id)})
     return redirect(url_for('index'))
 
+@app.route('/souls/<soul_id>/buy', methods=['POST'])
+def souls_buy(soul_id):
+    """Buy this soul"""
+    """Here we want to use the button to render an email form that can
+    send an email to the current soul holder"""
+    soul = souls_collection.find_one({'_id': ObjectId(soul_id)})
+    return render_template('souls-buy.html', soul=soul)
+
+'''How can I more randomize the image?'''
+
+'''How do I set up an email interface where the buyer can
+send the seller an email from the sellers email that was
+put in the database?'''
 
 if __name__ == '__main__':
     app.run(debug=True)

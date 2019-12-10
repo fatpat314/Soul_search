@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<a href='/'>Back to Home</a>
 <form method='POST' action='/souls'>
     <fieldset>
     <legend>New Soul</legend>
@@ -10,6 +10,13 @@
     <p>
         <label for= 'name'>Name</label><br>
         <input type='text' name='name' />
+
+    </p>
+    <!-- Email -->
+    <p>
+        <label for= 'Email '>Email</label><br>
+        <input type='text' name='Email' />
+
     </p>
 
     <!-- PRICE -->
@@ -24,7 +31,7 @@
 
     <!-- Button -->
     <p>
-        <button type='submit'>Save Soul</button>
+        <button type='submit'>Save Your Soul</button>
     </p>
 </form>
 {% endblock %}
