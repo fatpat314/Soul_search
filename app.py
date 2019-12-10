@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from bson import ObjectId
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Soul_search')
-client = MongoClient(host=host)
+client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.soul_search
 souls_collection = db.souls
 
