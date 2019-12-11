@@ -2,36 +2,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href='/'>Back to Home</a>
-<form method='POST' action='/souls'>
-    <fieldset>
-    <legend>New Soul</legend>
-    <!-- TITLE -->
-    <p>
-        <label for= 'name'>Name</label><br>
-        <input type='text' name='name' />
+<div class="container jumbotron">
 
-    </p>
-    <!-- Email -->
-    <p>
-        <label for= 'Email '>Email</label><br>
-        <input type='text' name='Email' />
 
-    </p>
+    <a href='/'>Back to Home</a>
+    <form method='POST' action='/souls'>
+        <fieldset>
+        <legend>New Soul</legend>
+        <!-- TITLE -->
+        <p>
+            <label for= 'name'>Name</label><br>
+            <input type='text' name='name' />
 
-    <!-- PRICE -->
-    <p>
-        <label for="price">Price</label><br>
-        <input type='text' name='price' />
-    </p>
+        </p>
+        <!-- Email -->
+        <p>
+            <label for= 'Email '>Email</label><br>
+            <input type='text' name='Email' />
 
-    <!-- SOUL IDS -->
+        </p>
 
-    </fieldset>
+        <!-- PRICE -->
+        <p>
+            <label for="price">Price</label><br>
+            <input type='text' name='price' />
+        </p>
 
-    <!-- Button -->
-    <p>
-        <button type='submit'>Save Your Soul</button>
-    </p>
-</form>
+        <!-- SOUL IDS -->
+
+        </fieldset>
+
+        <!-- Button -->
+        <p>
+            <button type='submit'>Save Your Soul</button>
+        </p>
+    </form>
+</div>
 {% endblock %}
