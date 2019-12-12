@@ -49,9 +49,9 @@ def souls_show(soul_id):
     """Show a single soul"""
     soul = souls_collection.find_one({'_id': ObjectId(soul_id)})
 
-    soul_comments = comments.find_one({'soul_id': ObjectId(soul_id)})
 
-    return render_template('souls_show.html', soul=soul, comments=soul_comments)
+
+    return render_template('souls_show.html', soul=soul)
 
 @app.route('/souls/<soul_id>/edit')
 def souls_edit(soul_id):
