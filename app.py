@@ -100,11 +100,11 @@ def comments_new():
     }
     return redirect(url_for('souls_show', soul_id=request.form.get('soul_id')))
 
-# @app.route('/souls/comments/comment_id>', mentods=['POST'])
-# def comments_delete(comment_id):
-#     comment = comments.find_one({'_id': ObjectId(comment_id)})
-#     comments.delete_one({'_id': ObjectId(comment_id)})
-#     return redirect(url_for('souls_show', soul_id=comment.get('soul_id')))
+@app.route('/souls/comments/comment_id>', mentods=['POST'])
+def comments_delete(comment_id):
+    comment = comments.find_one({'_id': ObjectId(comment_id)})
+    comments.delete_one({'_id': ObjectId(comment_id)})
+    return redirect(url_for('souls_show', soul_id=comment.get('soul_id')))
 
 
 '''How can I more randomize the image?'''
