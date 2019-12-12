@@ -3,29 +3,31 @@
 
 {% block content %}
 <div class="container jumbotron">
-<a href='/'>Back to Home</a>
+    <a href='/'>Back to Home</a>
 
-<h1>{{ soul.name }}'s soul</h1>
-<img src="https://avatars.dicebear.com/v2/jdenticon/{{ soul._id }}.svg" alt="{{ soul.name }}" width="300">
-<h3>Asking Price:</h3>
-<h2>${{ soul.price }}</h2>
+    <h1>{{ soul.name }}'s soul</h1>
+    <img src="https://avatars.dicebear.com/v2/jdenticon/{{ soul._id }}.svg" alt="{{ soul.name }}" width="300">
+    <h3>Asking Price:</h3>
+    <h2>${{ soul.price }}</h2>
 
-{% for soul in soul.souls %}
-    <iframe width='420' height='315' src= '{{ soul }}'></iframe>
+    {% for soul in soul.souls %}
+        <iframe width='420' height='315' src= '{{ soul }}'></iframe>
 
-{% endfor %}
+    {% endfor %}
 
 <!-- Emain Button -->
-<p><form method='POST' action='/souls/{{ soul._id }}/buy'>
-    <button type='submit'>Buy This Soul</button>
-</form></p>
+    <p><form method='POST' action='/souls/{{ soul._id }}/buy'>
+        <button type='submit'>Buy This Soul</button>
+    </form></p>
 
 <!--Edit soul-->
-<p><a href='/souls/{{ soul._id }}/edit'>Edit</a></p>
+    <p><a href='/souls/{{ soul._id }}/edit'>Edit</a></p>
 
 <!-- DELETE BUTTON -->
-<p><form method='POST' action='/souls/{{ soul._id }}/delete'>
-    <button type='submit'>Delete</button>
-</form></p>
+    <p><form method='POST' action='/souls/{{ soul._id }}/delete'>
+        <button type='submit'>Delete</button>
+    </form></p>
+    <!--comment form-->
+    {% include 'partials/comment_form.html' %}
 </div>
 {% endblock %}
