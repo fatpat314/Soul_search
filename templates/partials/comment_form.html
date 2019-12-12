@@ -1,6 +1,8 @@
 <!-- templates/partials/comment_form.html -->
 
-<form>
+<form action='/souls/comments' method='POST'>
+    <!-- Add the hidden input -->
+    <input type='hidden' value='{{ soul._id }}' name='soul_id'/>
     <fieldset>
         <legend>Place a Bid</legend>
         <!-- Title -->

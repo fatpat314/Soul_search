@@ -30,5 +30,10 @@
 
     <!--comment form-->
     {% include 'partials/comment_form.html' %}
+
+    <!-- show comment -->
+    {% for comment in comments %}
+        {% include 'partials/comment.html' %}
+    {% endfor %}
 </div>
 {% endblock %}
