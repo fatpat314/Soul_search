@@ -89,18 +89,18 @@ def souls_buy(soul_id):
     soul = souls_collection.find_one({'_id': ObjectId(soul_id)})
     return render_template('souls-buy.html', soul=soul)
 
-@app.route('/souls/comments', methods=['POST'])
-def comments_new():
-    '''Submit a new  comment'''
-    comment = {
-        'title': request.form.get('title'),
-        'content': request.form.get('content'),
-        'soul_id': ObjectId(request.form.get('soul_id'))
-    }
-
-    print(comment)
-    comment_id = comments.insert_one(comment). inserted_id
-    return redirect(url_for('souls_show', soul_id=request.form.get('soul_id')))
+# @app.route('/souls/comments', methods=['POST'])
+# def comments_new():
+#     '''Submit a new  comment'''
+#     comment = {
+#         'title': request.form.get('title'),
+#         'content': request.form.get('content'),
+#         'soul_id': ObjectId(request.form.get('soul_id'))
+#     }
+#
+#     print(comment)
+#     comment_id = comments.insert_one(comment). inserted_id
+#     return redirect(url_for('souls_show', soul_id=request.form.get('soul_id')))
 
 '''How can I more randomize the image?'''
 
