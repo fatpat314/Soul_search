@@ -29,9 +29,12 @@
     <p><a href='/souls/{{ soul._id }}/edit'>Edit</a></p>
 
     <!--comment form-->
-    
+    {% include 'partials/comment_form.html' %}
 
     <!-- show comment -->
+    {% for comment in comments %}
+        {% include 'partials/comment.html' %}
+    {% endfor %}
 
 </div>
 {% endblock %}

@@ -8,6 +8,8 @@ client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
 souls_collection = db.souls
 
+comments = db.comments
+
 
 app = Flask(__name__)
 
@@ -49,9 +51,8 @@ def souls_show(soul_id):
     """Show a single soul"""
     soul = souls_collection.find_one({'_id': ObjectId(soul_id)})
 
-
-
-    return render_template('souls_show.html', soul=soul)
+    soul_comments = comments.find({'soul_id': ObjectId(soul_id))
+    return render_template('souls_show.html', soul=soul, comments=soul_comments)
 
 @app.route('/souls/<soul_id>/edit')
 def souls_edit(soul_id):
@@ -88,6 +89,16 @@ def souls_buy(soul_id):
     send an email to the current soul holder"""
     soul = souls_collection.find_one({'_id': ObjectId(soul_id)})
     return render_template('souls-buy.html', soul=soul)
+
+@app.route('/souls/comments', methods=['POST'])
+def comments_new():
+    '''Submit a new comment '''
+    comment = {
+        'title': request.form.get('title'),
+        'content': request.form.get('content'),
+        'soul_id': ObjectId(request.form.get('souls'))
+    }
+    return redirect(url_for('souls_show', soul_id=request.form.get('soul_id')))
 
 
 '''How can I more randomize the image?'''
