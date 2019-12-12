@@ -20,13 +20,14 @@
         <button type='submit'>Buy This Soul</button>
     </form></p> -->
 
-<!--Edit soul-->
-    <p><a href='/souls/{{ soul._id }}/edit'>Edit</a></p>
-
 <!-- DELETE BUTTON -->
     <p><form method='POST' action='/souls/{{ soul._id }}/delete'>
         <button type='submit'>Delete</button>
     </form></p>
+
+<!--Edit soul-->
+    <p><a href='/souls/{{ soul._id }}/edit'>Edit</a></p>
+
     <!--comment form-->
     {% include 'partials/comment_form.html' %}
 </div>
