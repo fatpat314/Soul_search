@@ -100,7 +100,7 @@ def comments_new():
     }
     return redirect(url_for('souls_show', soul_id=request.form.get('soul_id')))
 
-@app.route('/souls/comments/comment_id>', mentods=['POST'])
+@app.route('/souls/comments/comment_id>', methods=['POST'])
 def comments_delete(comment_id):
     comment = comments.find_one({'_id': ObjectId(comment_id)})
     comments.delete_one({'_id': ObjectId(comment_id)})
