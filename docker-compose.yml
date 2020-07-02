@@ -1,18 +1,15 @@
-  version: '3'
-
-  services:
-    db:
-      image: postgres
-      environment:
-        - POSTGRES_DB=postgres
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=postgres
-    web:
-      build: .
-      command: python manage.py runserver 0.0.0.0:8000
-      volumes:
-        - .:/code
-      ports:
-        - "5000:5000"
-      depends_on:
-        - db
+version: '3'
+services:
+    datastore:
+        image: mongo:3.0.2
+        ports:
+            - "27017:27017"
+    frontend:
+        build: .
+        command: python -u app.py
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/soul_search
+        links:
+            - datastore

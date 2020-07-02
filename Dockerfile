@@ -1,8 +1,6 @@
 # Install base image
 FROM python:3.7-slim-buster
 
-RUN pip install Flask
-
 # Copy source code to container
 ADD . /app
 
